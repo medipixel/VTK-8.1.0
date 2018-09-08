@@ -1,3 +1,0 @@
-[submodule "source/Remote/vtkDICOM"]
-	path = source/Remote/vtkDICOM
-	url = https://github.com/medipixel/vtk-dicom.git
