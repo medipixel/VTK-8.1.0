@@ -1,5 +1,5 @@
 set(vtkDICOM_LOADED 1)
-set(vtkDICOM_DEPENDS "vtkIOImage;vtkIOSQL;vtkImagingCore;vtkImagingStatistics;vtkInteractionStyle;vtkRenderingImage;vtkRenderingOpenGL2;vtksys;vtkzlib")
+set(vtkDICOM_DEPENDS "vtkIOCore;vtkIOImage;vtkImagingCore;vtkImagingStatistics;vtkInteractionStyle;vtkRenderingImage;vtkRenderingOpenGL2;vtkzlib")
 set(vtkDICOM_LIBRARIES "vtkDICOM")
 set(vtkDICOM_INCLUDE_DIRS "${VTK_INSTALL_PREFIX}/include/vtk-8.1")
 set(vtkDICOM_LIBRARY_DIRS "")

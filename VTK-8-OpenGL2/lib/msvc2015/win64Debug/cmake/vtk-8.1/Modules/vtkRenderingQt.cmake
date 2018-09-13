@@ -9,7 +9,7 @@ set(vtkRenderingQt_KIT "")
 set(vtkRenderingQt_TARGETS_FILE "")
 
 if(NOT Qt5_DIR)
-  set(Qt5_DIR "C:/Qt/5.10.1/msvc2015_64/lib/cmake/Qt5")
+  set(Qt5_DIR "C:/Qt/Qt5.10.1/5.10.1/msvc2015_64/lib/cmake/Qt5")
 endif()
 find_package(Qt5 REQUIRED QUIET COMPONENTS Widgets)
 

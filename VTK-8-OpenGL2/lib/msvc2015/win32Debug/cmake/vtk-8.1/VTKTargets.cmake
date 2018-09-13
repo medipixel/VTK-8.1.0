@@ -16,7 +16,7 @@ set(CMAKE_IMPORT_FILE_VERSION 1)
 set(_targetsDefined)
 set(_targetsNotDefined)
 set(_expectedTargets)
-foreach(_expectedTarget vtksys vtkCommonCore vtkCommonMath vtkCommonMisc vtkCommonSystem vtkCommonTransforms vtkCommonDataModel vtkCommonColor vtkCommonExecutionModel vtkCommonComputationalGeometry vtkFiltersCore vtkFiltersGeneral vtkImagingCore vtkImagingFourier vtkalglib vtkFiltersStatistics vtkFiltersExtraction vtkInfovisCore vtkFiltersGeometry vtkFiltersSources vtkRenderingCore vtkzlib vtkfreetype vtkRenderingFreeType vtkRenderingContext2D vtkChartsCore vtkDICOMParser vtkmetaio vtkjpeg vtkpng vtktiff vtkIOImage vtklz4 vtkIOCore vtksqlite vtkIOSQL vtkImagingStatistics vtkInteractionStyle vtkRenderingImage vtkEncodeString vtkglew vtkRenderingOpenGL2 vtkDICOM vtkIOLegacy vtkexpat vtkIOXMLParser vtkDomainsChemistry vtkDomainsChemistryOpenGL2 vtkIOXML vtkHashSource vtkParallelCore vtkFiltersAMR vtkFiltersFlowPaths vtkFiltersGeneric vtkImagingSources vtkFiltersHybrid vtkFiltersHyperTree vtkImagingGeneral vtkFiltersImaging vtkFiltersModeling vtkFiltersParallel vtkFiltersParallelImaging vtkFiltersPoints vtkFiltersProgrammable vtkFiltersSMP vtkFiltersSelection vtkFiltersTexture vtkFiltersTopology verdict vtkFiltersVerdict vtkGUISupportQt vtkGUISupportQtSQL vtkImagingHybrid vtkInfovisLayout vtkImagingColor vtkRenderingAnnotation vtkRenderingVolume vtkInteractionWidgets vtkViewsCore vtkproj4 vtkGeovisCore vtkhdf5 vtkhdf5_hl vtkIOAMR vtkIOEnSight vtkNetCDF vtkexoIIc vtkIOExodus vtkgl2ps vtkRenderingGL2PSOpenGL2 vtklibharu vtkIOExport vtkIOExportOpenGL2 vtkIOGeometry vtkIOImport vtklibxml2 vtkIOInfovis vtkIOLSDyna vtkIOMINC vtkoggtheora vtkIOMovie vtknetcdfcpp vtkIONetCDF vtkIOPLY vtkjsoncpp vtkIOParallel vtkIOParallelXML vtkIOTecplotTable vtkIOVideo vtkImagingMath vtkImagingMorphological vtkImagingStencil vtkInteractionImage vtkRenderingContextOpenGL2 vtkRenderingLOD vtkRenderingLabel vtkRenderingQt vtkRenderingVolumeOpenGL2 vtkViewsContext2D vtkViewsInfovis vtkViewsQt)
+foreach(_expectedTarget vtksys vtkCommonCore vtkCommonMath vtkCommonMisc vtkCommonSystem vtkCommonTransforms vtkCommonDataModel vtkCommonColor vtkCommonExecutionModel vtkCommonComputationalGeometry vtkFiltersCore vtkFiltersGeneral vtkImagingCore vtkImagingFourier vtkalglib vtkFiltersStatistics vtkFiltersExtraction vtkInfovisCore vtkFiltersGeometry vtkFiltersSources vtkRenderingCore vtkzlib vtkfreetype vtkRenderingFreeType vtkRenderingContext2D vtkChartsCore vtklz4 vtkIOCore vtkDICOMParser vtkmetaio vtkjpeg vtkpng vtktiff vtkIOImage vtkImagingStatistics vtkInteractionStyle vtkRenderingImage vtkEncodeString vtkglew vtkRenderingOpenGL2 vtkDICOM vtkIOLegacy vtkexpat vtkIOXMLParser vtkDomainsChemistry vtkDomainsChemistryOpenGL2 vtkIOXML vtkHashSource vtkParallelCore vtkFiltersAMR vtkFiltersFlowPaths vtkFiltersGeneric vtkImagingSources vtkFiltersHybrid vtkFiltersHyperTree vtkImagingGeneral vtkFiltersImaging vtkFiltersModeling vtkFiltersParallel vtkFiltersParallelImaging vtkFiltersPoints vtkFiltersProgrammable vtkFiltersSMP vtkFiltersSelection vtkFiltersTexture vtkFiltersTopology verdict vtkFiltersVerdict vtkGUISupportQt vtksqlite vtkIOSQL vtkGUISupportQtSQL vtkImagingHybrid vtkInfovisLayout vtkImagingColor vtkRenderingAnnotation vtkRenderingVolume vtkInteractionWidgets vtkViewsCore vtkproj4 vtkGeovisCore vtkhdf5 vtkhdf5_hl vtkIOAMR vtkIOEnSight vtkNetCDF vtkexoIIc vtkIOExodus vtkgl2ps vtkRenderingGL2PSOpenGL2 vtklibharu vtkIOExport vtkIOExportOpenGL2 vtkIOGeometry vtkIOImport vtklibxml2 vtkIOInfovis vtkIOLSDyna vtkIOMINC vtkoggtheora vtkIOMovie vtknetcdfcpp vtkIONetCDF vtkIOPLY vtkjsoncpp vtkIOParallel vtkIOParallelXML vtkIOTecplotTable vtkIOVideo vtkImagingMath vtkImagingMorphological vtkImagingStencil vtkInteractionImage vtkRenderingContextOpenGL2 vtkRenderingLOD vtkRenderingLabel vtkRenderingQt vtkRenderingVolumeOpenGL2 vtkViewsContext2D vtkViewsInfovis vtkViewsQt)
   list(APPEND _expectedTargets ${_expectedTarget})
   if(NOT TARGET ${_expectedTarget})
     list(APPEND _targetsNotDefined ${_expectedTarget})
@@ -254,6 +254,21 @@ set_target_properties(vtkChartsCore PROPERTIES
   INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonDataModel;vtkFiltersGeneral;vtkRenderingContext2D;vtkRenderingCore;vtksys"
 )
 
+# Create imported target vtklz4
+add_library(vtklz4 SHARED IMPORTED)
+
+set_target_properties(vtklz4 PROPERTIES
+  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
+)
+
+# Create imported target vtkIOCore
+add_library(vtkIOCore SHARED IMPORTED)
+
+set_target_properties(vtkIOCore PROPERTIES
+  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
+  INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonExecutionModel"
+)
+
 # Create imported target vtkDICOMParser
 add_library(vtkDICOMParser SHARED IMPORTED)
 
@@ -297,36 +312,6 @@ add_library(vtkIOImage SHARED IMPORTED)
 set_target_properties(vtkIOImage PROPERTIES
   INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
   INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonExecutionModel"
-)
-
-# Create imported target vtklz4
-add_library(vtklz4 SHARED IMPORTED)
-
-set_target_properties(vtklz4 PROPERTIES
-  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
-)
-
-# Create imported target vtkIOCore
-add_library(vtkIOCore SHARED IMPORTED)
-
-set_target_properties(vtkIOCore PROPERTIES
-  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
-  INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonExecutionModel"
-)
-
-# Create imported target vtksqlite
-add_library(vtksqlite STATIC IMPORTED)
-
-set_target_properties(vtksqlite PROPERTIES
-  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
-)
-
-# Create imported target vtkIOSQL
-add_library(vtkIOSQL SHARED IMPORTED)
-
-set_target_properties(vtkIOSQL PROPERTIES
-  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
-  INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonExecutionModel;vtkIOCore"
 )
 
 # Create imported target vtkImagingStatistics
@@ -376,7 +361,7 @@ add_library(vtkDICOM SHARED IMPORTED)
 
 set_target_properties(vtkDICOM PROPERTIES
   INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
-  INTERFACE_LINK_LIBRARIES "vtkIOImage;vtkIOSQL;vtkImagingCore"
+  INTERFACE_LINK_LIBRARIES "vtkIOCore;vtkIOImage;vtkImagingCore"
 )
 
 # Create imported target vtkIOLegacy
@@ -590,6 +575,21 @@ add_library(vtkGUISupportQt SHARED IMPORTED)
 set_target_properties(vtkGUISupportQt PROPERTIES
   INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
   INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkRenderingCore;vtkRenderingOpenGL2;Qt5::Widgets"
+)
+
+# Create imported target vtksqlite
+add_library(vtksqlite STATIC IMPORTED)
+
+set_target_properties(vtksqlite PROPERTIES
+  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
+)
+
+# Create imported target vtkIOSQL
+add_library(vtkIOSQL SHARED IMPORTED)
+
+set_target_properties(vtkIOSQL PROPERTIES
+  INTERFACE_COMPILE_FEATURES "cxx_nullptr;cxx_override"
+  INTERFACE_LINK_LIBRARIES "vtkCommonCore;vtkCommonExecutionModel;vtkIOCore"
 )
 
 # Create imported target vtkGUISupportQtSQL

@@ -282,6 +282,27 @@ set_target_properties(vtkChartsCore PROPERTIES
 list(APPEND _IMPORT_CHECK_TARGETS vtkChartsCore )
 list(APPEND _IMPORT_CHECK_FILES_FOR_vtkChartsCore "${_IMPORT_PREFIX}/lib/vtkChartsCore-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkChartsCore-8.1.dll" )
 
+# Import target "vtklz4" for configuration "Debug"
+set_property(TARGET vtklz4 APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(vtklz4 PROPERTIES
+  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtklz4-8.1.lib"
+  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtklz4-8.1.dll"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS vtklz4 )
+list(APPEND _IMPORT_CHECK_FILES_FOR_vtklz4 "${_IMPORT_PREFIX}/lib/vtklz4-8.1.lib" "${_IMPORT_PREFIX}/bin/vtklz4-8.1.dll" )
+
+# Import target "vtkIOCore" for configuration "Debug"
+set_property(TARGET vtkIOCore APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(vtkIOCore PROPERTIES
+  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtkIOCore-8.1.lib"
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtkCommonDataModel;vtkCommonMisc;vtklz4;vtksys;vtkzlib"
+  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtkIOCore-8.1.dll"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS vtkIOCore )
+list(APPEND _IMPORT_CHECK_FILES_FOR_vtkIOCore "${_IMPORT_PREFIX}/lib/vtkIOCore-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkIOCore-8.1.dll" )
+
 # Import target "vtkDICOMParser" for configuration "Debug"
 set_property(TARGET vtkDICOMParser APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(vtkDICOMParser PROPERTIES
@@ -342,48 +363,6 @@ set_target_properties(vtkIOImage PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS vtkIOImage )
 list(APPEND _IMPORT_CHECK_FILES_FOR_vtkIOImage "${_IMPORT_PREFIX}/lib/vtkIOImage-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkIOImage-8.1.dll" )
-
-# Import target "vtklz4" for configuration "Debug"
-set_property(TARGET vtklz4 APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(vtklz4 PROPERTIES
-  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtklz4-8.1.lib"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtklz4-8.1.dll"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS vtklz4 )
-list(APPEND _IMPORT_CHECK_FILES_FOR_vtklz4 "${_IMPORT_PREFIX}/lib/vtklz4-8.1.lib" "${_IMPORT_PREFIX}/bin/vtklz4-8.1.dll" )
-
-# Import target "vtkIOCore" for configuration "Debug"
-set_property(TARGET vtkIOCore APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(vtkIOCore PROPERTIES
-  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtkIOCore-8.1.lib"
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtkCommonDataModel;vtkCommonMisc;vtklz4;vtksys;vtkzlib"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtkIOCore-8.1.dll"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS vtkIOCore )
-list(APPEND _IMPORT_CHECK_FILES_FOR_vtkIOCore "${_IMPORT_PREFIX}/lib/vtkIOCore-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkIOCore-8.1.dll" )
-
-# Import target "vtksqlite" for configuration "Debug"
-set_property(TARGET vtksqlite APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(vtksqlite PROPERTIES
-  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/lib/vtksqlite-8.1.lib"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS vtksqlite )
-list(APPEND _IMPORT_CHECK_FILES_FOR_vtksqlite "${_IMPORT_PREFIX}/lib/vtksqlite-8.1.lib" )
-
-# Import target "vtkIOSQL" for configuration "Debug"
-set_property(TARGET vtkIOSQL APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
-set_target_properties(vtkIOSQL PROPERTIES
-  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtkIOSQL-8.1.lib"
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtksys"
-  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtkIOSQL-8.1.dll"
-  )
-
-list(APPEND _IMPORT_CHECK_TARGETS vtkIOSQL )
-list(APPEND _IMPORT_CHECK_FILES_FOR_vtkIOSQL "${_IMPORT_PREFIX}/lib/vtkIOSQL-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkIOSQL-8.1.dll" )
 
 # Import target "vtkImagingStatistics" for configuration "Debug"
 set_property(TARGET vtkImagingStatistics APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
@@ -462,7 +441,7 @@ list(APPEND _IMPORT_CHECK_FILES_FOR_vtkRenderingOpenGL "${_IMPORT_PREFIX}/lib/vt
 set_property(TARGET vtkDICOM APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
 set_target_properties(vtkDICOM PROPERTIES
   IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtkDICOM-8.1.lib"
-  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtksys;vtkzlib"
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtkzlib"
   IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtkDICOM-8.1.dll"
   )
 
@@ -771,6 +750,27 @@ set_target_properties(vtkGUISupportQtOpenGL PROPERTIES
 
 list(APPEND _IMPORT_CHECK_TARGETS vtkGUISupportQtOpenGL )
 list(APPEND _IMPORT_CHECK_FILES_FOR_vtkGUISupportQtOpenGL "${_IMPORT_PREFIX}/lib/vtkGUISupportQtOpenGL-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkGUISupportQtOpenGL-8.1.dll" )
+
+# Import target "vtksqlite" for configuration "Debug"
+set_property(TARGET vtksqlite APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(vtksqlite PROPERTIES
+  IMPORTED_LINK_INTERFACE_LANGUAGES_DEBUG "C"
+  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/lib/vtksqlite-8.1.lib"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS vtksqlite )
+list(APPEND _IMPORT_CHECK_FILES_FOR_vtksqlite "${_IMPORT_PREFIX}/lib/vtksqlite-8.1.lib" )
+
+# Import target "vtkIOSQL" for configuration "Debug"
+set_property(TARGET vtkIOSQL APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)
+set_target_properties(vtkIOSQL PROPERTIES
+  IMPORTED_IMPLIB_DEBUG "${_IMPORT_PREFIX}/lib/vtkIOSQL-8.1.lib"
+  IMPORTED_LINK_DEPENDENT_LIBRARIES_DEBUG "vtksys"
+  IMPORTED_LOCATION_DEBUG "${_IMPORT_PREFIX}/bin/vtkIOSQL-8.1.dll"
+  )
+
+list(APPEND _IMPORT_CHECK_TARGETS vtkIOSQL )
+list(APPEND _IMPORT_CHECK_FILES_FOR_vtkIOSQL "${_IMPORT_PREFIX}/lib/vtkIOSQL-8.1.lib" "${_IMPORT_PREFIX}/bin/vtkIOSQL-8.1.dll" )
 
 # Import target "vtkGUISupportQtSQL" for configuration "Debug"
 set_property(TARGET vtkGUISupportQtSQL APPEND PROPERTY IMPORTED_CONFIGURATIONS DEBUG)

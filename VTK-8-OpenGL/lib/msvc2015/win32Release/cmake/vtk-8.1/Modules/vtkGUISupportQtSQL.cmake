@@ -10,7 +10,7 @@ set(vtkGUISupportQtSQL_TARGETS_FILE "")
 set(vtkGUISupportQtSQL_EXCLUDE_FROM_WRAPPING 1)
 
 if(NOT Qt5_DIR)
-  set(Qt5_DIR "C:/Qt/5.10.1/msvc2015/lib/cmake/Qt5")
+  set(Qt5_DIR "C:/Qt/Qt5.10.1/5.10.1/msvc2015/lib/cmake/Qt5")
 endif()
 find_package(Qt5 REQUIRED QUIET COMPONENTS Sql Widgets)
 

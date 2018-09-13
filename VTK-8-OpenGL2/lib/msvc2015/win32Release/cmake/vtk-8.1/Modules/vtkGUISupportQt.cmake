@@ -8,13 +8,13 @@ set(vtkGUISupportQt_WRAP_HIERARCHY_FILE "${CMAKE_CURRENT_LIST_DIR}/vtkGUISupport
 set(vtkGUISupportQt_KIT "")
 set(vtkGUISupportQt_TARGETS_FILE "")
 set(VTK_QT_RCC_EXECUTABLE "")
-set(VTK_QT_MOC_EXECUTABLE "C:/Qt/5.10.1/msvc2015/bin/moc.exe")
+set(VTK_QT_MOC_EXECUTABLE "C:/Qt/Qt5.10.1/5.10.1/msvc2015/bin/moc.exe")
 set(VTK_QT_UIC_EXECUTABLE "")
-set(VTK_QT_QMAKE_EXECUTABLE "C:/Qt/5.10.1/msvc2015/bin/qmake.exe")
+set(VTK_QT_QMAKE_EXECUTABLE "C:/Qt/Qt5.10.1/5.10.1/msvc2015/bin/qmake.exe")
 set(vtkGUISupportQt_EXCLUDE_FROM_WRAPPING 1)
 
 if(NOT Qt5_DIR)
-  set(Qt5_DIR "C:/Qt/5.10.1/msvc2015/lib/cmake/Qt5")
+  set(Qt5_DIR "C:/Qt/Qt5.10.1/5.10.1/msvc2015/lib/cmake/Qt5")
 endif()
 find_package(Qt5 REQUIRED QUIET COMPONENTS Widgets)
 

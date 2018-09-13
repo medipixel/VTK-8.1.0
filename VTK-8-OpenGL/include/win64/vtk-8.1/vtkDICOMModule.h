@@ -34,6 +34,5 @@
 
 /* AutoInit dependencies.  */
 #include "vtkIOImageModule.h"
-#include "vtkIOSQLModule.h"
 
 #endif
